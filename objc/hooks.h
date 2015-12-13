@@ -102,4 +102,9 @@ typedef IMP (*objc_tracing_hook)(id, SEL, IMP, int, void*);
  */
 int objc_registerTracingHook(SEL, objc_tracing_hook);
 
+/**
+ * Return the slot for the message send to use when two plane aware objects do
+ * not share the same object plane.
+ */
+OBJC_HOOK struct objc_slot * (*objc_plane_lookup)(id *receiver, SEL op, id sender);
 
